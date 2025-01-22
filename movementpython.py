@@ -2,7 +2,9 @@ import pygame #Импортируем библиотеку pygame
 import sys #Импортируем библиотеку sys
 
 pygame.init() #Инициализируем pygame
-MainScreen = pygame.display.set_mode((1800, 900)) #Создаем главное окно
+HEIGHT = 900 #Задаем переменную высоты
+WIDTH = 1800 #Задаем переменную ширины
+MainScreen = pygame.display.set_mode((WIDTH, HEIGHT)) #Создаем главное окно
 pygame.display.set_caption("Movement Test v1") #Название окна
 
 sprites_group = pygame.sprite.Group() #Создаем группу для спрайтов
@@ -10,10 +12,10 @@ sprites_group = pygame.sprite.Group() #Создаем группу для спр
 class Player(pygame.sprite.Sprite): #Создаем спрайт с классом игрока
     def __init__(self): #Создаем функцию для инициализации спрайта
         pygame.sprite.Sprite.__init__(self) #Специальная строка для встроенной инициализации
-        self.image = pygame.Surface((45, 45)) #Задаем внешний вид спрайта (квадрат 45 на 45 пикселей)
+        self.image = pygame.Surface((25, 25)) #Задаем внешний вид спрайта (квадрат 45 на 45 пикселей)
         self.image.fill((255, 255, 255)) #Заполняем его белым цветом
         self.rect = self.image.get_rect() #Создаем для него хитбокс (область определения объекта в 2D пространстве)
-        self.rect.center = (1800/2, 900/2) #Задаем начальную точку спрайта
+        self.rect.center = (WIDTH/2, HEIGHT/2) #Задаем начальную точку спрайта
         
         self.canmoving = True #Переменная проверяющая возможномть движения (если False делает игрока не управляемым)
         self.moving = None #Переменная для определения направления и движения
